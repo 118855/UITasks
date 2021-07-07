@@ -30,29 +30,39 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
     }
    
-    //DatePicker
+//DatePicker
     func datePickerView() {
-            dateTextField.inputView = datePicker
-            datePicker.datePickerMode = .date
-            datePicker.preferredDatePickerStyle = .wheels
-            datePicker.maximumDate = Calendar.current.date(byAdding: .day, value: 0 , to: Date())
-            datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        dateTextField.inputView = datePicker
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.maximumDate = Date()  //Ограничения на ввод. Самая поздняя дата - сегодня.
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        dateTextField.addTarget(self, action: #selector(closePicker), for: .touchDown)
+        
+        
         }
-
+    
     @objc private func dateChanged() {
             let dateFormat = DateFormatter()
             dateFormat.dateStyle = .medium
             dateTextField.text = "Date of birth: " + dateFormat.string(from: datePicker.date)
         }
+    @objc func closePicker(){
+        dateTextField.resignFirstResponder()
+        genderTextField.resignFirstResponder()
     }
     
-    //GenderPicker
+}
+
+    
+//GenderPicker
 extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     
     func setView () {
         pickerView.delegate = self
         pickerView.dataSource = self
         genderTextField.inputView = pickerView
+        genderTextField.addTarget(self, action: #selector(closePicker), for: .touchDown)
     }
         
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -69,7 +79,7 @@ extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTextField.text = genders[row]
-        genderTextField.resignFirstResponder()
+        
     }
 }
 
