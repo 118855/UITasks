@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Picker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-mK-gRf">
+                                <rect key="frame" x="20" y="281" width="374" height="34"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Date of Birth: ">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmD-Lm-1op">
+                                <rect key="frame" x="143" y="55" width="128" height="128"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.89350166580000001" blue="0.97981419709999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="1bA-hY-Xea"/>
+                                    <constraint firstAttribute="width" constant="128" id="AgE-6k-4X1"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFN-0y-k9b">
+                                <rect key="frame" x="20" y="204" width="374" height="34"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Gender">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WmD-Lm-1op" firstAttribute="centerX" secondItem="lFN-0y-k9b" secondAttribute="centerX" id="4Xp-QT-pxm"/>
+                            <constraint firstItem="lFN-0y-k9b" firstAttribute="top" secondItem="WmD-Lm-1op" secondAttribute="bottom" constant="21" id="5Xr-4C-B9a"/>
+                            <constraint firstItem="Pwg-mK-gRf" firstAttribute="leading" secondItem="lFN-0y-k9b" secondAttribute="leading" id="XKY-tt-Oik"/>
+                            <constraint firstItem="Pwg-mK-gRf" firstAttribute="top" secondItem="lFN-0y-k9b" secondAttribute="bottom" constant="43" id="Xy0-77-Cl3"/>
+                            <constraint firstItem="WmD-Lm-1op" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZUa-K8-BfK"/>
+                            <constraint firstItem="Pwg-mK-gRf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dWj-pV-dJ4"/>
+                            <constraint firstItem="WmD-Lm-1op" firstAttribute="centerX" secondItem="Pwg-mK-gRf" secondAttribute="centerX" id="fQe-mE-nfN"/>
+                            <constraint firstItem="WmD-Lm-1op" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="kGp-62-3dP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="Pwg-mK-gRf" id="Cdy-qi-NkV"/>
+                        <outlet property="genderTextField" destination="lFN-0y-k9b" id="30l-j9-PmD"/>
+                        <outlet property="imageView" destination="WmD-Lm-1op" id="57s-2x-n3H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
