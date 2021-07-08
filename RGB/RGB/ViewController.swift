@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet private weak var redLabel: UILabel!
     @IBOutlet private weak var redTextField: UITextField!
@@ -46,34 +46,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         greenTextField.text = String(Int(greenSlider.value))
         blueTextField.text = String(Int(blueSlider.value))
         
-        viewComponent.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        viewComponent.backgroundColor = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
+}
+    
+extension ViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-      
         guard let text = textField.text, let textValue = Float(text + string) else {
             return false
         }
-        if textValue < 0 && textValue > 255 {
+        if textValue > 255 {
             return false
         }
-            return true
+        return true
     }
     
- 
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if Float(redTextField.text ?? "0") != nil, Float(greenTextField.text ?? "0") != nil, Float(blueTextField.text ?? "0") != nil {
-            redSlider.value = Float(redTextField.text!)!
-            greenSlider.value = Float(greenTextField.text!)!
-            blueSlider.value = Float(blueTextField.text!)!
-        }
-        
-        textField.resignFirstResponder()
+        redSlider.value = Float(redTextField.text ?? " ") ?? 0.0
+        greenSlider.value = Float(greenTextField.text ?? " ") ?? 0.0
+        blueSlider.value = Float(blueTextField.text ?? " ") ?? 0.0
         changeColor()
+        textField.resignFirstResponder()
         return true
-        
     }
-   
 }
 
